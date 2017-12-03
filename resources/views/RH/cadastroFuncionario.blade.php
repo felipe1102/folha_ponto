@@ -11,13 +11,14 @@
 				</div>
 				<div class="x_content">
 					<br />
-					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
+					
+					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" role="form" method="POST" action="{{ url('/cadastrarUsuario') }}" enctype="multipart/form-data">
+						<input type="hidden" name="_token" value="{!! csrf_token() !!}" >
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12"  for="name">Nome<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input type="text" id="first-name" required="required" name='nome' class="form-control col-md-7 col-xs-12">
+								<input type="text" id="first-name" required="required" name='name' class="form-control col-md-7 col-xs-12">
 							</div>
 						</div>
 						<div class="form-group">
@@ -60,25 +61,25 @@
 							<div class="col-md-6 col-sm-6 col-xs-12">
 
 				          <p>
-				            Colaborador:<input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required /> 
-				            Supervisor: <input type="radio" class="flat" name="gender" id="genderF" value="F" />
-				            RH: <input type="radio" class="flat" name="gender" id="genderF" value="F" />
+				            Colaborador:<input type="radio" class="flat" name="tipoUsuario" id="genderM" value="1" checked="" required /> 
+				            Supervisor: <input type="radio" class="flat" name="tipoUsuario" id="genderF" value="2" />
+				            RH: <input type="radio" class="flat" name="tipoUsuario" id="genderF" value="3" />
 				          </p>
 								
 							</div>
 						</div>
 						<div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">Supervisor</label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <select class="form-control">
-                  <option></option>
-                  <option>Option one</option>
-                  <option>Option two</option>
-                  <option>Option three</option>
-                  <option>Option four</option>
-                </select>
-              </div>
-            </div>
+			              <label class="control-label col-md-3 col-sm-3 col-xs-12">Supervisor</label>
+			              <div class="col-md-6 col-sm-6 col-xs-12">
+			                <select class="form-control" name="supervisor">
+			                  <option value=""></option>
+			                  @foreach ($super as $s)
+			                  <option value="{{ $s['id'] }}">{{ $s['name'] }}</option>
+			                  @endforeach
+			                  
+			                </select>
+			              </div>
+			            </div>
 
 						<div class="ln_solid"></div>
 						<div class="form-group">

@@ -30,21 +30,23 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <form  role="form" method="POST" action="{{ url('/login') }}">
+              {{ csrf_field() }}
               <h1>Login</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Email" required="" />
+                <input type="text" class="form-control" name="email" placeholder="Email" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Senha" required="" />
+                <input type="password" class="form-control" name="password" placeholder="Senha" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Logar</a>
+                <button type="submit" class="btn btn-default submit">Logar</button>
+                
                 
               </div>
 
               <div class="clearfix"></div>
-
+              <a class="btn btn-primary submit" href="/">Ponto</a>
               <div class="separator">
 
                 <div class="clearfix"></div>
@@ -62,7 +64,7 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-            <form>
+            <form  role="form" method="POST" action="{{ url('/login') }}">
               <h1>Create Account</h1>
               <div>
                 <input type="text" class="form-control" placeholder="Username" required="" />
@@ -74,7 +76,7 @@
                 <input type="password" class="form-control" placeholder="Password" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
+                <button type="submit" class="btn btn-default submit" >Submit</button>
               </div>
 
               <div class="clearfix"></div>

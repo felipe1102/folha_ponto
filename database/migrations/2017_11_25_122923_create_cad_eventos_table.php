@@ -17,6 +17,8 @@ class CreateCadEventosTable extends Migration
             $table->increments('id');
             $table->integer('id_folha')->unsigned();
             $table->foreign('id_folha')->references('id')->on('folha_pontos');
+            $table->integer('id_usuario')->unsigned();
+            $table->foreign('id_usuario')->references('id')->on('users');
             $table->text('descricao');
             $table->timestamps();
         });

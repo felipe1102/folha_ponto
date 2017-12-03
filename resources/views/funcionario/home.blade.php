@@ -25,11 +25,13 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
+              @foreach($folha as $f)
+              <th scope="row">{{ $f['id'] }}</th>
+              <td>{{ $f['dia'] }}</td>
+              <td>{{ $f['hora_ent'] }}</td>
+              <td>{{ $f['hora_saida'] }}</td>
+              <td><button type="button" class="btn btn-default btn-xs">validar</button></td>
+              @endforeach
             </tr>
             
           </tbody>

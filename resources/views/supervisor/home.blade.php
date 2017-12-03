@@ -4,7 +4,7 @@
   <div class="col-md-12 col-sm-6 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Seu Ponto</h2>
+        <h2>Seu Ponto Supervisor</h2>
         <ul class="nav navbar-right panel_toolbox">
           
        
@@ -23,9 +23,11 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
+              @foreach($folha as $f)
+              <th scope="row"></th>
               <td>Mark</td>
               <td>@mdo</td>
+              @endforeach
             </tr>
             
           </tbody>

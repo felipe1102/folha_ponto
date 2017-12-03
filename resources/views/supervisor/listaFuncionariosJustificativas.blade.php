@@ -18,15 +18,24 @@
             <tr>
               <th>id</th>
               <th>Nome</th>
+              <th>Opção</th>
+
             </tr>
           </thead>
           <tbody>
-            @foreach($funcionarios as $f)
-            <tr>
-              <th scope="row">{{ $f['id'] }}</th>
-              <td>{{ $f['name'] }}</td>
-              
-            </tr>
+            @foreach($usuarios as $u)
+              @foreach($u['justificativa'] as $j)
+              @if($j != null)
+                <tr>
+                  <th scope="row">{{ $u['id'] }}</th>
+                  <td>{{ $u['name'] }}</td>
+                  
+                  <td><a type="button"  href="/justificativa_supervisor/{{ $j['id'] }}" class="btn btn-default btn-xs">Justificativa</a></td>
+
+                  
+                </tr>
+              @endif
+              @endforeach
             @endforeach
             
           </tbody>

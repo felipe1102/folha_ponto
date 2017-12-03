@@ -18,13 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('id_cod_sup');
+            $table->string('id_cod_sup');
             $table->float('salario');
-            $table->string('codigo_barra');
             $table->string('UF');
             $table->string('Cidade');
             $table->integer('nivel');
-            $table->integer('cod_departamento');
             $table->rememberToken();
             $table->timestamps();
         });

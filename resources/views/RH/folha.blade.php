@@ -4,7 +4,7 @@
 	<div class="col-md-6 col-sm-6 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
-            <h2>Nome Funcionario <small>Salario bruto: R$:1000</small></h2>
+            <h2>{{ $usuario['name'] }} <small>Salario bruto: R$:{{ $usuario['salario'] }}</small></h2>
 
             <div class="clearfix"></div>
           </div>
@@ -21,19 +21,24 @@
                 <tr>
                   <th scope="row">Salario</th>
                   <td></td>
-                  <td>1000</td>
+                  <td>{{ $usuario['salario'] }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Desconto</th>
-                  <td>200</td>
+                  <td>{{ $desconto }}</td>
                   <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">Hora Extra</th>
+                  <td></td>
+                  <td>{{ $horaExtra }}</td>
                 </tr>
 
                 <tr>
                   <th >Total a receber</th>
                   
                   <td></td>
-                  <td>$R 100</td>
+                  <td>R$ {{ $liquido }}</td>
                 </tr>
 
               </tbody>

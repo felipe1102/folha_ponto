@@ -33,19 +33,36 @@
             <!-- /menu profile quick info -->
 
             <br />
-
+            
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>Menu</h3>
-
+                
                 <ul class="nav side-menu">
-                  <li><a>Cadastrar <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.html">Funcionario</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="/pontoSupervisor"><i class="fa fa-home"></i>Ponto Funcionarios</span></a>
+
+
+                  @if(Auth::guard()->user()->nivel == '1')
+              
+                  @endif
+
+                  @if(Auth::guard()->user()->nivel == '2')
+                    <li><a href="/home"></i>Home</span></a>
+                    <li><a href="/listaFuncionarios"></i>Meus Funcionarios</span></a>
+                    <li><a href="/listaJustificativaFuncionarios"></i>Justificativas</span></a>
+                  @endif
+
+                  @if(Auth::guard()->user()->nivel == '3')
+                    <li><a href="/home"></i>Home</span></a>
+                    <li><a>Cadastrar </span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="/cadastroUsuario">Funcionario</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="/listaFuncionariosRh">lista Pontos mês</span></a>
+                    <li><a href="/listaFuncionariosFolha">Folha</span></a>
+                  @endif
+              
                     
                   </li>
                   
@@ -71,11 +88,11 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    John Doe
+                    {{ Auth::guard()->user()->name }}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
                   </ul>

@@ -26,16 +26,26 @@
     <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
-
+      
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+             <form  role="form" method="POST" action="{{ url('/cadastroPonto') }}">
+              {{ csrf_field() }}
               <h1>PONTO</h1>
+              @if ($resposta !=  '')
+                
+                  <span class="help-block">
+                      <strong>{{$resposta}}</strong>
+                  </span>
+               
+              @endif
               <div>
-                <input type="text" class="form-control" placeholder="Codigo" required="" />
+                <input type="text" class="form-control" name="id" placeholder="Codigo" required="" />
               </div>
-              <a class="btn btn-default submit" href="index.html">Registrar</a>
+              <button class="btn btn-default submit" href="">Registrar</button>
+              <a class="btn btn-primary submit" href="/login">Logar</a>
+              
                 
               </div>
             </form>
